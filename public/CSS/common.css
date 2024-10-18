@@ -1,0 +1,28 @@
+*,*::after,*::before {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background-color: #778899;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.width {
+    max-width: 1350px; margin: 0 auto;
+}
+
+.montserrat, .poppins {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.playfair-display {
+    font-family: "Playfair Display", serif;
+}
+
+/* nav bar active */
+.active-link {
+    padding: 0.25rem 0.5rem;
+    background-color: #F7923C;
+    border-radius: 15px;
+    color: black;
+}

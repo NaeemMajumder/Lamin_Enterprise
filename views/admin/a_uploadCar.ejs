@@ -1,0 +1,121 @@
+<% layout("/boilerplate/admin_boiler.ejs") %>
+<body>
+    <section class="width pb-40">
+        <h1 class="text-center text-5xl font-bold text-white uppercase mt-12 mb-20">Upload New Car</h1>
+        <form enctype="multipart/form-data" method="POST" class="needs-validation" novalidate action="/admin/allCollections" id="uploadForm">
+            <div class="grid grid-cols-2 gap-8 form-container">
+                <div class="bg-white p-8 rounded-lg">
+                    <div>
+                        <label class="form-label" for="carType">Conditions <span class="text-red-600">*</span> <span class="eg">( e.g. new )</span></label>
+                        <select required class="form-select" name="upload[carType]" id="carType">
+                            <option value="" disabled selected>Car Type</option>
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                            <option value="Recondition">Recondition</option>
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Select Car Type</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="brand">Car Brand <span class="text-red-600">*</span> <span class="eg">( e.g. Toyota )</span></label>
+                        <input required class="form-control" id="brand" name="upload[brand]" type="text" placeholder="brand">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Brand Name</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="carName">Car Model <span class="text-red-600">*</span> <span class="eg">( e.g. Toyota Corolla Cross )</span></label>
+                        <input required class="form-control" id="carName" name="upload[carName]" type="text" placeholder="carName">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Model Name</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="package">Edition/Package <span class="text-red-600">*</span> <span class="eg">( e.g. Z )</span></label>
+                        <input required class="form-control" id="package" name="upload[package]" type="text" placeholder="package">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Package</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="modelYear">Model Year <span class="text-red-600">*</span> <span class="eg">( e.g. 2024 )</span></label>
+                        <input required class="form-control" id="modelYear" name="upload[modelYear]" type="number" placeholder="modelYear">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Model Year</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="engine">Engine Capacity <span class="text-red-600">*</span> <span class="eg">( e.g. 1800 cc )</span></label>
+                        <input required class="form-control" id="engine" name="upload[engineCapacity]" type="text" placeholder="engin capacity">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Engine Capacity</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="mileage">Mileage <span class="text-red-600">*</span> <span class="eg">( e.g. 7 K.M. )</span></label>
+                        <input required class="form-control" id="mileage" name="upload[mileage]" type="text" placeholder="car mileage">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Milage</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="color">Car Color <span class="text-red-600">*</span> <span class="eg">( e.g. Red Wine )</span></label>
+                        <input required class="form-control" id="color" name="upload[carColor]" type="text" placeholder="car color">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please choose a username.</div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg">
+                    <div>
+                        <label class="form-label" for="auctionGrade">Auction Grade <span class="text-red-600">*</span> <span class="eg">( e.g. S Point )</span></label>
+                        <input required class="form-control" id="auctionGrade" name="upload[auctionGrade]" type="text" placeholder="auction grade">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Auction Grade</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="price">Car Price <span class="text-red-600">*</span> <span class="eg">( e.g. 10000000 ) <span class="text-red-600 font-medium">don't use coma or any symbol</span></span></label>
+                        <input required class="form-control" id="price" name="upload[carPrice]" type="number" placeholder="car price">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Enter Car Price</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="soldStatus">Sold Status <span class="text-red-600">*</span> <span class="eg">( e.g. Available )</span></label>
+                        <select required class="form-select" name="upload[soldStatus]" id="soldStatus">
+                            <option value="" disabled selected>Sold Status</option>
+                            <option value="true">Sold</option>
+                            <option value="false">Available</option>
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Select Car Sold Status</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="image">Upload Image <span class="text-red-600">*</span>&nbsp; <span class="text-red-600 font-medium text-xs">Maximum 10 images, total size under 20MB.</span></label>
+                        <input required class="form-control" id="image" name="upload[carImage]" type="file" multiple>
+                        <div class="invalid-feedback" id="error-message" class="text-red-600 font-bold"></div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="features">Car Features <span class="text-red-600">*</span> <span class="eg">( e.g. Full Leather Seat, Sunroof, 360 Camera ) <span class="text-red-600 font-medium">write multiple features using coma (,)</span> </span></label>
+                        <input required class="form-control" id="features" name="upload[carFeatures]" type="text" placeholder="car features">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Features. If no features, write ( N/A )</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="phoneNumber">Phone Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01543878888 )</span></label>
+                        <input required class="form-control" id="phoneNumber" name="upload[phoneNumber]" type="number" placeholder="phone number">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid Phone Number</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="email">Email <span class="text-red-600">*</span> <span class="eg">( e.g. robin123@gmail.com )</span></label>
+                        <input required class="form-control" id="email" name="upload[email]" type="email" placeholder="email">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid Email Address</div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="whatsappNumber">Whatsapp Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01588997766 ) <span class="text-red-600 font-medium">don't use country code. (+88)</span> </span></label>
+                        <input required class="form-control" id="whatsappNumber" name="upload[whatsappNumber]" type="number" placeholder="whatsappNumber">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid WhatsApp Number</div>
+                    </div>
+                    <div class="text-end mt-12">
+                        <button class="py-3 px-6 bg-orange-600 text-white font-bold rounded-xl">Upload Car</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>

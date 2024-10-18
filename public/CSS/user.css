@@ -1,0 +1,39 @@
+.logo img { height: 100%; width: 120px; }
+.swiper { width: 100%; height: 90vh; }
+.swiper-slide-hero, .swiper-slide { position: relative; text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; overflow: hidden; height: 100%; opacity: 0.8; border-radius: 16px; }
+.swiper-slide-hero::after { position: absolute; top: 0; left: 0; height: 100%; width: 100%; content: ""; background-color: rgba(0, 0, 0, 0.349); z-index: 1000; }
+.swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video { width: 100%; height: 100vh; overflow: hidden; object-fit: fill; }
+.fixed-wrapper { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; z-index: 100; backdrop-filter: blur(10px); }
+.logo-img { filter: drop-shadow(0 0 10px black); }
+.navbar { height: 100%; overflow: hidden; }
+.hero-text { position: absolute; top: 0; left: 0; z-index: 10; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3rem; }
+@media screen and (max-width:450px) { .swiper { width: 100%; height: 50vh; } }
+.about-div { background: linear-gradient(rgba(0, 0, 0, 0.545), black), url("/images/bg.jpg"); background-size: cover; border-radius: 16px; }
+.logo-div { background-image: url("/images/black-bg.png"); backdrop-filter: blur(100px); }
+#more-brands:hover { background-color: #F18FAC !important; color: black; }
+.swiper2 { width: 100%; height: 550px; overflow: hidden; }
+.swiper-2-slide { text-align: center; font-size: 18px; background: #fff; display: flex; flex-direction: column; justify-content: space-between; align-items: start; gap: 0.6rem; overflow: hidden; }
+.swiper-2-slide .img-div { display: block; width: 100%; height: 55%; object-fit: cover; overflow: hidden; }
+.img-div img { height: 100%; width: 100%; object-fit: cover; transition-duration: 0.5s; }
+.img-div img:hover { transform: scale(1.1); }
+.view-all { transition-duration: 0.3s; border-color: #F18FAC; border-radius: 6px; padding: 0.5rem 1rem; }
+.view-all:hover { padding: 0.75rem 1.5rem; border: 2px solid #F18FAC !important; }
+.all-brand > div { border: 2px solid black; background-color: #FFFFE0; padding: 15px 10px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.2rem; cursor: pointer; transition-duration: 0.5s; box-shadow: 3px 3px 5px black; }
+.all-brand div p { font-size: 1rem; color: black; font-weight: 600; }
+.all-brand > div:hover { background-color: #678090; }
+#morrisgarage > p, #marutisuzuki > p { font-size: 0.9rem; text-align: center; }
+.pagination { display: flex; justify-content: center; margin: 20px 0; }
+.pagination a, .pagination span { margin: 0 5px; padding: 10px; border: 1px solid #ddd; text-decoration: none; color: #333; }
+.pagination a:hover { background-color: #f0f0f0; }
+.pagination span { font-weight: bold; background-color: #F7923C; }
+.email { border: 1px solid #ea580c !important; }
+.contact-div { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/contact.jpg"); background-size: cover; background-repeat: no-repeat; border-radius: 20px; padding: 4rem 4rem 2rem 4rem; }
+.qutation { text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.708); }
+.number { transition-duration: 0.5s; }
+.number:hover { color: rgb(248, 48, 48); text-decoration: underline; }
+.admin-button { position: fixed !important; bottom: 20px; right: 20px; background-color: red; color: white; font-weight: bold; padding: 15px; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; border: none; cursor: pointer; transition: background-color 0.3s ease; position: relative; }
+.admin-button:hover { background-color: darkred; }
+@keyframes jumpTwiceRelax { 0% { transform: translateY(0); } 10% { transform: translateY(-15px); } 20% { transform: translateY(0); } 30% { transform: translateY(-15px); } 40% { transform: translateY(0); } 100% { transform: translateY(0); } }
+.admin-button { animation: jumpTwiceRelax 4s infinite; }
+@media screen and (max-width:1300px) { .swiper-slide, .all-brands, .about-div, .logo-div { border-radius: 0px; } .card-section, .all-brand-section, .car-details-info, .all-car-details, .buy-process, .admin-allCollection { padding-left: 1rem; padding-right: 1rem; } .swiper2 div div { border-radius: 16px 16px 0 0; } }

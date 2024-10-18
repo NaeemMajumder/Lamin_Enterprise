@@ -1,0 +1,45 @@
+.car-details-section {
+    position: relative; max-height: 80%; width: 50%;
+    background: transparent; color: #fff; margin: 0; padding: 0;
+}
+
+.swiper4 {
+    width: 100%; height: 500px; margin: 0 auto; overflow: hidden;
+}
+
+.swiper-3-slide {
+    text-align: center; background-color: transparent;
+    display: flex; justify-content: center; align-items: center;
+    background-size: cover; background-position: center;
+}
+
+.swiper-3-slide img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 2px; cursor: pointer;
+}
+
+.modal-show {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modal-show img { max-width: 90%; max-height: 90%; }
+
+.close-button {
+    position: absolute; top: 20px; right: 20px;
+    background: #ff0000; color: white; border: none; border-radius: 15px;
+    padding: 10px; cursor: pointer; font-size: 16px;
+}
+
+.mySwiper3 {
+    height: 120px; box-sizing: border-box; padding: 10px; overflow-x: auto;
+}
+
+.mySwiper3 .swiper-3-slide {
+    width: 120px !important; height: 100%; opacity: 0.5;
+}
+
+.mySwiper3 .swiper-3-slide img { object-fit: cover; }
+
+.mySwiper3 .swiper-slide-thumb-active { opacity: 1; }

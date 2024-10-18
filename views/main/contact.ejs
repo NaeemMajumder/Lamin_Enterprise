@@ -1,0 +1,65 @@
+<% layout("/boilerplate/user_boiler.ejs") %>
+
+<body class="relative">
+    <section class="width pb-40">
+
+        <h1 class="text-center text-5xl font-bold text-white uppercase mb-20">Contact Us</h1>
+
+        <div class="contact-div w-full flex justify-between gap-6">
+            <div>
+                <h1 class="qutation text-white font-medium text-3xl playfair-display mb-8">Ride into Freedom, Your Ultimate Car Buying Guide</h1>
+
+                <div class="text-white font-medium mb-8">
+                    <h2 class="font-semibold text-xl underline mb-3">Phone Number</h2>
+                    <div>
+                        <% const phoneNumbers = ['+8801738383300', '+8801782768094', '+8801778855001', '+8801811553377']; %>
+                        <% phoneNumbers.forEach(number => { %>
+                            <a class="number tracking-wider" href="tel:<%= number %>"><%= number %></a><br>
+                        <% }); %>
+                    </div>
+                </div>
+
+                <div class="text-white font-medium mb-8">
+                    <h2 class="font-semibold text-xl underline mb-3">Email Address</h2>
+                    <div>
+                        <% const emails = ['eeshan777@yahoo.com', 'sufeyanfahad@gmail.com']; %>
+                        <% emails.forEach(email => { %>
+                            <a class="number tracking-wider" href="mailto:<%= email %>"><%= email %></a><br>
+                        <% }); %>
+                    </div>
+                </div>
+
+                <div class="text-white font-medium">
+                    <h2 class="font-semibold text-xl underline mb-3">Facebook Page</h2>
+                    <div>
+                        <a href="https://www.facebook.com/nishatautos17" target="_blank" class="mr-4">
+                            <div class="p-2 bg-white rounded-xl inline-block">
+                                <img width="30" height="30" src="https://img.icons8.com/fluency/30/facebook-new.png" alt="Facebook" />
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/ambulance.bazaar/?_rdr" target="_blank">
+                            <div class="p-2 bg-white rounded-xl inline-block">
+                                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/FA5252/facebook-new.png" alt="Facebook" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-lg">
+                <iframe class="rounded-lg" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.4088862114195!2d90.35836517536205!3d23.768449788083142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0a6abf568cd%3A0xcf0bb6013e603936!2sLaima%20Enterprise!5e0!3m2!1sen!2sbd!4v1729167355881!5m2!1sen!2sbd" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <button class="admin-button" onclick="goToAdmin()">Are you admin?</button>
+    </div>
+</body>

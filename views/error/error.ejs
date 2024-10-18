@@ -1,0 +1,8 @@
+<% layout("/boilerplate/user_boiler.ejs") %>
+<body>
+    <section class="width h-[90vh] flex flex-col gap-8 justify-center items-center">
+        <h1 class="text-8xl text-red-700 font-bold"><%= statusCode  %></h1>
+        <p class="text-5xl font-semibold"><%= message %></p>
+        <a href="/"><button class="border font-medium rounded-lg py-2 px-4">Go back to the home page</button></a>        
+    </section>
+</body>

@@ -1,0 +1,133 @@
+<% layout("/boilerplate/user_boiler.ejs") %>
+
+<body>
+
+    <section class="width pb-40">
+        <div class="car-details-info mt-12 mb-32 flex gap-8">
+            <section class="car-details-section">
+                <!-- Swiper -->
+                <div class="swiper4 mySwiper4" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff">
+                    <div class="swiper-wrapper swiper-upper">
+                        <% for (let image of carDetails.carImage.url) { %>
+                            <div class="swiper-slide swiper-3-slide">
+                                <img src="<%= image %>" />
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div thumbsSlider="" class="swiper mySwiper3">
+                    <div class="swiper-wrapper swiper-upper">
+                        <% for (let image of carDetails.carImage.url) { %>
+                            <div class="swiper-slide swiper-3-slide">
+                                <img src="<%= image %>" />
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </section>
+
+            <section class="key-info-section w-1/2 bg-[#E4E7EA] rounded-xl py-12 px-16">
+
+                <div class="mb-14">
+                    <p class="font-semibold text-2xl text-gray-600 mb-3"><%= carDetails.brand %></p>
+                    <p class="text-5xl mb-4 text-orange-600 font-bold"><%= carDetails.carName %></p>
+                    <p class="text-4xl text-black font-medium">Price: <%= carDetails.carPrice.toLocaleString("en-BD") %> &#2547;</p>
+                </div>
+
+                <div class="mb-14">
+                    <p class="text-xl font-normal mb-4">Car Type: <b><%= carDetails.carType %></b></p>
+                    <p class="text-xl font-normal mb-4">Model Year: <b><%= carDetails.modelYear %></b></p>
+                    <p class="text-xl font-normal mb-4">Sales Status:
+                        <% if (carDetails.soldStatus === "false") { %>
+                            <span class="bg-green-500 text-white text-base font-medium py-1 px-2 rounded-lg">Available</span>
+                        <% } else { %>
+                            <span class="bg-red-600 text-white text-base font-medium py-1 px-2 rounded-lg">Sold</span>
+                        <% } %>
+                    </p>
+                </div>
+
+                <div class="flex gap-6 items-center justify-center">
+                    <div>
+                        <p id="callBtn" class="flex justify-center items-center gap-2 bg-orange-600 text-white font-semibold rounded-3xl cursor-pointer py-2 px-6">
+                            <img width="20" height="20" src="https://img.icons8.com/ios-filled/20/FFFFFF/phone.png" alt="phone"/>
+                            <span>Call</span>
+                        </p>
+                        <p id="phoneNumber" class="hidden flex gap-2">
+                            <img width="20" height="20" src="https://img.icons8.com/nolan/20/phone.png" alt="phone"/>
+                            <span class="font-bold"><%= carDetails.phoneNumber %></span>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <a href="mailto:<%= carDetails.email %>">
+                            <p class="email flex justify-center items-center gap-1 bg-transparent text-orange-600 border-orange-600 border font-semibold rounded-3xl cursor-pointer py-2 px-6">
+                                <img width="20" height="20" src="https://img.icons8.com/ios/20/ea580c/secured-letter--v1.png" alt="email"/>
+                                <span>Email</span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="https://wa.me/+88<%= carDetails.whatsappNumber %>" target="_blank">
+                            <p class="flex justify-center items-center gap-2 bg-[#47D366] text-white font-semibold rounded-3xl cursor-pointer py-2 px-6">
+                                <img width="20" height="20" src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/20/FFFFFF/external-whatsapp-social-media-tanah-basah-glyph-tanah-basah.png" alt="WhatsApp"/>
+                                <span>WhatsApp</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Modal for full-screen image -->
+        <section class="all-car-details">
+            <div class="modal-show" id="imageModal">
+                <button class="close-button" id="closeModal">✖</button>
+                <img id="modalImage" src="" alt="Full Screen Image" />
+            </div>
+        </section>
+
+        <!-- Car details -->
+        <section class="width">
+            <h1 class="text-4xl font-semibold text-white mb-12">Features Overview</h1>
+
+            <div class="overflow-x-auto w-2/3 bg-[#e4e7eab4]">
+                <table class="table">
+                    <thead class="text-base text-black">
+                        <tr>
+                            <th>No</th>
+                            <th>Car Attributes</th>
+                            <th>Specifications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% const attributes = [
+                            { label: 'Brand', value: carDetails.brand },
+                            { label: 'Model', value: carDetails.carName },
+                            { label: 'Type', value: carDetails.carType },
+                            { label: 'Model Year', value: carDetails.modelYear },
+                            { label: 'Package', value: carDetails.package },
+                            { label: 'Engine Capacity', value: carDetails.engineCapacity },
+                            { label: 'Mileage', value: carDetails.mileage },
+                            { label: 'Color', value: carDetails.carColor },
+                            { label: 'Auction Grade', value: carDetails.auctionGrade },
+                            { label: 'Features', value: carDetails.carFeatures }
+                        ]; %>
+
+                        <% attributes.forEach((attr, index) => { %>
+                            <tr>
+                                <th><%= index + 1 %></th>
+                                <td class="font-semibold"><%= attr.label %></td>
+                                <td><%= attr.value %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+</body>

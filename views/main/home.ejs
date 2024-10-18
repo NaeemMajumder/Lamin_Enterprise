@@ -1,0 +1,116 @@
+<% layout("/boilerplate/user_boiler.ejs") %>
+
+<body>
+    <!-- first swiper js -->
+    <section class="swiper-section relative">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide-hero"><img src="/images/6.jpg" alt=""></div>
+                <div class="swiper-slide swiper-slide-hero"><img src="/images/4.jpg" alt=""></div>
+                
+                <!-- <div class="swiper-slide swiper-slide-hero flex justify-center items-center bg-black">
+                    <video class="video" src="/images/video-1.mp4" autoplay muted></video>
+                </div> -->
+                
+                <div class="swiper-slide swiper-slide-hero"><img src="/images/2.jpg" alt=""></div>
+                
+                <!-- <div class="swiper-slide swiper-slide-hero flex justify-center items-center bg-black">
+                    <video class="video" src="/images/video-2.mp4" autoplay muted></video>
+                </div> -->
+                
+                <div class="swiper-slide swiper-slide-hero"><img src="/images/5.jpg" alt=""></div>
+                
+                <!-- <div class="swiper-slide swiper-slide-hero bg-black">
+                    <video class="video" src="/images/video-3.mp4" autoplay muted></video>
+                </div> -->
+                
+                <div class="swiper-slide swiper-slide-hero"><img src="/images/1.jpg" alt=""></div>
+                
+                <!-- <div class="swiper-slide swiper-slide-hero bg-black">
+                    <video class="video" src="/images/video-4.mp4" autoplay muted></video>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="hero-text playfair-display">
+            <p class="text-6xl font-bold text-[#F18FAC]">WELCOME &#128075; TO</p>
+            <p class="text-5xl uppercase font-bold poppins text-white border-2 py-4 px-8 rounded-lg bg-black">
+                <span class="text-red-600">Lamia</span> Enterprise
+            </p>
+            <p class="text-center text-xl poppins font-medium text-[#ffffff] leading-8">
+                &#128204; <br> Drive Your Dream <br> Find Your Perfect Car Today!
+            </p>
+        </div>
+    </section>        
+
+    <!-- main -->
+    <main>
+        <section class="width rounded-[16px] py-40">
+            <div class="about-div py-12">
+                <h1 class="text-center text-5xl font-bold text-white uppercase mb-12">About Us</h1>
+                <p class="montserrat text-justify text-white px-20 text-xl">
+                    <b>Lamia Enterprise</b> is a well-established and highly reputable importer of both reconditioned and brand-new vehicles in Bangladesh. Our primary focus is on sourcing quality automobiles from Japan, while also catering to specific client requirements by importing cars from Japan when needed. Over the years, we have built a strong reputation for reliability and excellence in both our product offerings and our after-sales services, earning the trust and confidence of our customers. 
+                    <br><br>
+                    In addition to serving individual clients, we maintain valuable partnerships with various corporate entities across diverse sectors in Bangladesh, including both private companies and government projects. We also offer flexible payment options through installment plans, facilitated by leading banks and financial institutions, to ensure a seamless and convenient purchasing experience for our clients.
+                </p>
+            </div>
+        </section>
+
+        <section class="all-brands width rounded-[16px] pb-40">
+            <div class="logo-div rounded-[16px] py-20 px-32">
+                <h1 class="text-center text-5xl font-bold text-white uppercase mb-12">Our Selling Brands</h1>
+                <div id="all-logo" class="flex gap-20 items-center justify-center pt-10 text-center">
+                    <% const brands = ['toyota', 'honda', 'mazda', 'mercedes', 'mitsubishi', 'lexus', 'nissan']; %>
+                    <% brands.forEach(brand => { %>
+                        <div class="flex flex-col gap-2 justify-center items-center">
+                            <img src="/images/<%= brand %>.png" alt="<%= brand.toUpperCase() %>">
+                            <p class="text-white"><%= brand.toUpperCase() %></p>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <div class="text-center mt-20">
+                    <a id="more-brands" class="text-[#F18FAC] font-semibold duration-500 py-3 px-4 rounded-lg bg-black border border-[#F18FAC]" href="/allBrands">
+                        More Brands <span class="text-lg font-bold">&#8594;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="width pb-40 card-section">
+            <h1 class="text-center text-5xl font-bold text-white uppercase mb-20">Recent Additions</h1>
+
+            <!-- second swiper js -->
+            <div class="swiper2 mySwiper2 mb-20">
+                <div class="swiper-wrapper">
+                    <% for(let car of lastTenCars) { %>
+                        <div class="swiper-slide swiper-2-slide">
+                            <div class="img-div <%= car.soldStatus === "false" ? '' : 'relative' %>">
+                                <img src="<%= car.carImage.url[0] %>" alt="<%= car.carName %>">
+                                <% if(car.soldStatus === "true") { %>
+                                    <span class="absolute top-5 left-5 bg-red-600 text-white px-2 py-1 text-sm rounded">Sold</span>
+                                <% } %>
+                            </div>
+                            
+                            <div class="px-4 text-start text-base">
+                                <h1 class="font-semibold mb-1"><%= car.brand %></h1>
+                                <p class="text-xl mb-1 text-orange-600 font-bold"><%= car.carName %></p>
+                                <p class="text-lg tracking-wide mb-3 font-bold text-black">&#2547; <%= car.carPrice.toLocaleString("en-BD") %></p>
+                                <p class="font-medium text-sm mb-1">Car Type: <b><%= car.carType %></b></p>
+                                <p class="font-medium text-sm mb-1">Model Year: <b><%= car.modelYear %></b></p>
+                            </div>
+
+                            <a class="w-full" href="/allCollections/<%= car._id %>">
+                                <button class="btn border-none bg-orange-400 text-black text-base w-full rounded-none">See Details</button>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a class="view-all text-xl text-[#f7c6d5] underline font-semibold" href="/allCollections">View All Cars&nbsp; &#8594;</a>
+            </div>
+        </section>
+    </main>
+</body>

@@ -1,0 +1,50 @@
+<% layout("/boilerplate/user_boiler.ejs") %>
+
+<body>
+    <h1 class="text-center text-5xl mt-8 font-bold text-white uppercase mb-20">Master Vehicle Collection</h1>
+
+    <section id="all-brand-section-card" class="all-brand-section width pb-40">
+        <div class="h-auto grid grid-cols-3 gap-6 mb-20">
+            <% for (let car of allCars) { %>
+                <div class="bg-[#D5D7D8] rounded-md overflow-hidden flex flex-col h-[500px]"> 
+                    <div class="img-div h-[55%] rounded-t-md overflow-hidden mb-4 relative">
+                        <img class="object-cover h-full rounded-t-md w-full" src="<%= car.carImage.url[0] %>" alt="<%= car.carName %>">
+                        <% if(car.soldStatus === "true") { %>
+                            <span class="absolute top-5 left-5 bg-red-600 text-white px-2 py-1 text-sm rounded">Sold</span>
+                        <% } %>
+                    </div>
+                    <div class="px-4 text-start text-base mb-2">
+                        <h1 class="font-semibold mb-1"><%= car.brand %></h1>
+                        <p class="text-xl mb-1 text-orange-600 font-bold"><%= car.carName %></p>
+                        <p class="text-lg tracking-wide mb-3 font-bold text-black">&#2547;&nbsp;<%= car.carPrice.toLocaleString("en-BD") %></p>
+                        <p class="font-medium text-sm mb-1">Car Type: <b><%= car.carType %></b></p>
+                        <p class="font-medium text-sm mb-1">Model Year: <b><%= car.modelYear %></b></p>
+                        <p class="text-end text-xs font-medium"><%=car.createdAt[0]%> <%=car.createdAt[1]%>, <%=car.createdAt[2]%> - <%=car.createdAt[3]%> ( <%=car.createdAt[4]%> : <%=car.createdAt[5]%> <%=car.createdAt[6]%> )</p>
+                    </div>
+                    <a class="w-full" href="/allCollections/<%= car._id %>">
+                        <button class="btn border-none bg-orange-400 text-black text-base w-full rounded-none">See Details</button>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+            <% if (currentPage > 1) { %>
+                <a href="/allCollections?page=<%= currentPage - 1 %>&limit=15">« Previous</a>
+            <% } %>
+            
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <% if (i === currentPage) { %>
+                    <span><%= i %></span>
+                <% } else { %>
+                    <a href="/allCollections?page=<%= i %>&limit=15"><%= i %></a>
+                <% } %>
+            <% } %>
+
+            <% if (currentPage < totalPages) { %>
+                <a href="/allCollections?page=<%= currentPage + 1 %>&limit=15">Next »</a>
+            <% } %>
+        </div>
+    </section>
+</body>

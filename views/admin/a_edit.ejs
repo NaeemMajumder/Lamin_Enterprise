@@ -1,0 +1,139 @@
+<% layout("/boilerplate/admin_boiler.ejs") %>
+<body>
+    <section class="width">
+        <h1 class="text-center text-5xl font-bold text-white uppercase mt-12 mb-20">Edit Cars</h1>
+
+        <form enctype="multipart/form-data" method="POST" class="needs-validation" novalidate action="/admin/allCollections/<%= carDetails._id %>?_method=PUT" id="uploadForm">
+            <div class="grid grid-cols-2 gap-8 form-container">
+
+                <div class="bg-white p-8 rounded-lg">
+                    <div>
+                        <label class="form-label" for="carType">Conditions <span class="text-red-600">*</span> <span class="eg">( e.g. new )</span></label>
+                        <select required class="form-select" name="upload[carType]" id="carType">
+                            <option value="" disabled selected>Car Type</option>
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                            <option value="Recondition">Recondition</option>
+                        </select>    
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Select Car Type</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="brand">Car Brand <span class="text-red-600">*</span> <span class="eg">( e.g. Toyota )</span></label>
+                        <input value="<%= carDetails.brand %>" required class="form-control" id="brand" name="upload[brand]" type="text" placeholder="Brand">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Brand Name</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="carName">Car Model <span class="text-red-600">*</span> <span class="eg">( e.g. Toyota Corolla Cross )</span></label>
+                        <input value="<%= carDetails.carName %>" required class="form-control" id="carName" name="upload[carName]" type="text" placeholder="Car Model">  
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Model Name</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="package">Edition/Package <span class="text-red-600">*</span> <span class="eg">( e.g. Z )</span></label>
+                        <input value="<%= carDetails.package %>" required class="form-control" id="package" name="upload[package]" type="text" placeholder="Edition/Package">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Package</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="modelYear">Model Year <span class="text-red-600">*</span> <span class="eg">( e.g. 2024 )</span></label>
+                        <input value="<%= carDetails.modelYear %>" required class="form-control" id="modelYear" name="upload[modelYear]" type="number" placeholder="Model Year">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Model Year</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="engine">Engine Capacity <span class="text-red-600">*</span> <span class="eg">( e.g. 1800 cc )</span></label>
+                        <input value="<%= carDetails.engineCapacity %>" required class="form-control" id="engine" name="upload[engineCapacity]" type="text" placeholder="Engine Capacity">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Engine Capacity</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="mileage">Mileage <span class="text-red-600">*</span> <span class="eg">( e.g. 7 K.M. )</span></label>
+                        <input value="<%= carDetails.mileage %>" required class="form-control" id="mileage" name="upload[mileage]" type="text" placeholder="Car Mileage">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Mileage</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="color">Car Color <span class="text-red-600">*</span> <span class="eg">( e.g. Red Wine )</span></label>
+                        <input value="<%= carDetails.carColor %>" required class="form-control" id="color" name="upload[carColor]" type="text" placeholder="Car Color">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Color</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg">
+                    <div>
+                        <label class="form-label" for="auctionGrade">Auction Grade <span class="text-red-600">*</span> <span class="eg">( e.g. S Point )</span></label>
+                        <input value="<%= carDetails.auctionGrade %>" required class="form-control" id="auctionGrade" name="upload[auctionGrade]" type="text" placeholder="Auction Grade">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Auction Grade</div>
+                    </div>
+        
+                    <div>
+                        <label class="form-label" for="price">Car Price <span class="text-red-600">*</span> <span class="eg">( e.g. 10000000 ) <span class="text-red-600 font-medium">Don't use commas or any symbol</span> </span></label>
+                        <input value="<%= carDetails.carPrice %>" required class="form-control" id="price" name="upload[carPrice]" type="number" placeholder="Car Price">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Enter Car Price</div>
+                    </div>
+        
+                    <div>
+                        <label class="form-label" for="soldStatus">Sold Status <span class="text-red-600">*</span> <span class="eg">( e.g. Available )</span></label>
+                        <select required class="form-select" name="upload[soldStatus]" id="soldStatus">
+                            <option value="" disabled selected>Sold Status</option>
+                            <option value="true">Sold</option>
+                            <option value="false">Available</option>
+                        </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Select Car Sold Status</div>
+                    </div>
+        
+                    <div>
+                        <label class="form-label" for="image">Upload Image </label>
+                        <input class="form-control" id="image" name="upload[carImage]" type="file" placeholder="Car Image" multiple>
+                        <div class="invalid-feedback" id="error-message" class="text-red-600 font-bold"></div>
+                    </div>
+        
+                    <div>
+                        <label class="form-label" for="features">Car Features <span class="text-red-600">*</span> <span class="eg">( e.g. Full Leather Seat, Sunroof, 360 Camera ) <span class="text-red-600 font-medium">Write multiple features using commas (,)</span> </span></label>
+                        <input value="<%= carDetails.carFeatures %>" required class="form-control" id="features" name="upload[carFeatures]" type="text" placeholder="Car Features">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Write Car Features. If no features, write ( N/A )</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="phoneNumber">Phone Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01543878888 )</span></label>
+                        <input value="<%= carDetails.phoneNumber %>" required class="form-control" id="phoneNumber" name="upload[phoneNumber]" type="number" placeholder="Phone Number">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid Phone Number</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="email">Email <span class="text-red-600">*</span> <span class="eg">( e.g. robin123@gmail.com )</span></label>
+                        <input value="<%= carDetails.email %>" required class="form-control" id="email" name="upload[email]" type="email" placeholder="Email">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid Email Address</div>
+                    </div>
+
+                    <div>
+                        <label class="form-label" for="whatsappNumber">WhatsApp Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01588997766 ) <span class="text-red-600 font-medium">Don't use country code. (+88)</span> </span></label>
+                        <input value="<%= carDetails.whatsappNumber %>" required class="form-control" id="whatsappNumber" name="upload[whatsappNumber]" type="number" placeholder="WhatsApp Number">        
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Valid WhatsApp Number</div>                
+                    </div>
+
+                    <div class="text-end mt-12">
+                        <button type="submit" class="py-3 px-6 bg-orange-600 text-white font-bold rounded-xl">Edit Car</button>                        
+                    </div>
+                </div>                
+            </div>
+        </form>  
+    </section>
+</body>
