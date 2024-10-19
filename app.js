@@ -88,8 +88,6 @@ app.use(flash());
 const ExpressError = require("./utils/ExpressError.js");
 
 
-// CarList Schema
-const CarList = require("./models/carList.js");
 
 // Admin Schema
 const Admin = require("./models/admin.js")
@@ -115,17 +113,6 @@ app.use((request,response,next)=>{
     response.locals.error = request.flash("error");
     next();
 })
-
-// app.get("/demouser",async(req,res)=>{
-//     let demoUser =new Admin ({
-//         email:"admin@gmail.com",
-//         username:"admin"
-//     });
-
-//     let demoRegUser = await Admin.register(demoUser,"admin");
-//     res.send(demoRegUser);
-// })
-
 
 
 // Express-Router Routes

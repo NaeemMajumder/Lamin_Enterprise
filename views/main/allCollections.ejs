@@ -19,7 +19,7 @@
                         <p class="text-lg tracking-wide mb-3 font-bold text-black">&#2547;&nbsp;<%= car.carPrice.toLocaleString("en-BD") %></p>
                         <p class="font-medium text-sm mb-1">Car Type: <b><%= car.carType %></b></p>
                         <p class="font-medium text-sm mb-1">Model Year: <b><%= car.modelYear %></b></p>
-                        <p class="text-end text-xs font-medium"><%=car.createdAt[0]%> <%=car.createdAt[1]%>, <%=car.createdAt[2]%> - <%=car.createdAt[3]%> ( <%=car.createdAt[4]%> : <%=car.createdAt[5]%> <%=car.createdAt[6]%> )</p>
+                        <p class="text-end text-xs font-medium"><%=car.createdAt[0]%> <%=car.createdAt[1]%>, <%=car.createdAt[2]%></p>
                     </div>
                     <a class="w-full" href="/allCollections/<%= car._id %>">
                         <button class="btn border-none bg-orange-400 text-black text-base w-full rounded-none">See Details</button>
