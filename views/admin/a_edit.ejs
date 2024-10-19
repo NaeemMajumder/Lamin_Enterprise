@@ -110,7 +110,7 @@
 
                     <div>
                         <label class="form-label" for="phoneNumber">Phone Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01543878888 )</span></label>
-                        <input value="<%= carDetails.phoneNumber %>" required class="form-control" id="phoneNumber" name="upload[phoneNumber]" type="number" placeholder="Phone Number">
+                        <input value="0<%= carDetails.phoneNumber %>" required class="form-control" id="phoneNumber" name="upload[phoneNumber]" type="number" placeholder="Phone Number">
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Valid Phone Number</div>
                     </div>
@@ -124,7 +124,7 @@
 
                     <div>
                         <label class="form-label" for="whatsappNumber">WhatsApp Number <span class="text-red-600">*</span> <span class="eg">( e.g. 01588997766 ) <span class="text-red-600 font-medium">Don't use country code. (+88)</span> </span></label>
-                        <input value="<%= carDetails.whatsappNumber %>" required class="form-control" id="whatsappNumber" name="upload[whatsappNumber]" type="number" placeholder="WhatsApp Number">        
+                        <input value="0<%= carDetails.whatsappNumber %>" required class="form-control" id="whatsappNumber" name="upload[whatsappNumber]" type="number" placeholder="WhatsApp Number">        
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Valid WhatsApp Number</div>                
                     </div>
