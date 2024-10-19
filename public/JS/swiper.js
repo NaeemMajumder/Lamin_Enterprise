@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let swiper = new Swiper(".mySwiper", {
-        autoplay: { delay: 2000, disableOnInteraction: false },
+        autoplay: { delay: 4000, disableOnInteraction: false },
         speed: 1500,
         loop: true,
         on: { slideChange: function () { handleVideoSlide(this); } },
