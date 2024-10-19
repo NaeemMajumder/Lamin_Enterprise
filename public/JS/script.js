@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             scroll_down.classList.remove("hidden");
             all_brand_section_card.classList.remove("hidden");
-            result.innerText = brand.charAt(0).toUpperCase() + brand.slice(1);
+            result.innerText = brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase(); 
             card_div.innerHTML = ""; 
 
             if (cars.length === 0) {
