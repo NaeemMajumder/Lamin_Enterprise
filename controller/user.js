@@ -45,7 +45,7 @@ module.exports.userContactGet = async(req,res)=>{
 module.exports.userAllBrandDataAPIGet = async(req, res) => {
     try {
         const brand = req.params.brand;
-        const cars = await CarList.find({ brand: new RegExp(`^${brand}$`, 'i') });
+        const cars = await CarList.find({ brand: { $regex: brand, $options: 'i' } });
         res.json(cars);
     } catch (error) {
         console.error("Error fetching cars by brand:", error);
