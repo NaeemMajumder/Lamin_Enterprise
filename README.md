@@ -127,3 +127,12 @@ The following are the key dependencies used in this project:
 "passport-local": "^1.0.0",
 "passport-local-mongoose": "^8.0.0",
 "swiper": "^11.1.14"
+
+
+🖥️ Note 🖥️
+This web application is designed exclusively for desktop users. The layout and features are optimized for larger screens to provide the best user experience.
+
+🤝 Contributing 🤝
+Contributions are welcome! If you’d like to contribute to this project, feel free to fork the repository, make your changes, and create a pull request. Ensure that your code adheres to the existing style guide and includes tests for new functionality.
+
+
