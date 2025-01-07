@@ -127,6 +127,7 @@ The following are the key dependencies used in this project:
 "passport-local": "^1.0.0",
 "passport-local-mongoose": "^8.0.0",
 "swiper": "^11.1.14"
+```
 
 
 🖥️ Note 🖥️
